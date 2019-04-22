@@ -22,8 +22,6 @@ string File_name;
 
 static void CallBackFunc( int event, int x, int y, int, void* )
 {
-    
-    
     switch( event )
     {
         case EVENT_LBUTTONDOWN:
@@ -32,10 +30,8 @@ static void CallBackFunc( int event, int x, int y, int, void* )
             selection.x = x;
             selection.y = y;
             break;
-
     }
 }
-
 
 int main(int argc, const char * argv[]) {
 
@@ -45,8 +41,10 @@ int main(int argc, const char * argv[]) {
     cout << "Subminor Version : " << CV_SUBMINOR_VERSION << endl;
     
     /// Create a videoreader interface
-    VideoCapture cap("tracking_sample.mp4");
-        
+    //VideoCapture cap("tracking_sample.mp4");
+    //VideoCapture cap("sample1.mov");
+    VideoCapture cap("sample4.mov");
+    
     Mat current_frame;
     
     namedWindow("detected person", 0);
@@ -74,7 +72,9 @@ int main(int argc, const char * argv[]) {
             
         ///image, vector of rectangles, hit threshold, win stride, padding, scale, group th
         Mat img = current_frame.clone();
-        resize(img,img,Size(img.cols*1.5, img.rows*1.5));
+        //resize(img,img,Size(img.cols*1.5, img.rows*1.5));
+        resize(img,img,Size(img.cols*0.9, img.rows*0.9));
+        
         
         //save the cropped image
         Mat cropped;
@@ -107,18 +107,17 @@ int main(int argc, const char * argv[]) {
                        selection.y <= found[j].y + found[j].height){
                         
                         //found array stores the data rectangle
+                        printf("ready2crop\n");
                         
                         rectangle(img, found[j], cv::Scalar(255,0,0), 1);
                         cropped = clone_cropped(found[j]);
-                        
-                        
                         
                         File_name = "img" + to_string(cnt_file_num) + ".jpg";
                         imwrite(File_name, cropped);
                         cnt_file_num++;
                         
                         flag_sel = 0;
-                        printf("ready2crop\n");
+
                         break;
                     }
                 }
@@ -129,9 +128,8 @@ int main(int argc, const char * argv[]) {
         
         //print the number of ppl on screen
         string numDetection = to_string(found.size());
-        putText(img, numDetection,Point(img.cols/10 * 8, img.rows/10 * 2), FONT_HERSHEY_SIMPLEX, 3, Scalar(0,0,255));
+        putText(img, numDetection,Point(img.cols/10 * 9, img.rows/10 * 1), FONT_HERSHEY_SIMPLEX, 3, Scalar(0,0,0));
         //cout << numDetection << endl;
-        
         
         /// Show
         imshow("detected person", img);
