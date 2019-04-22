@@ -34,4 +34,18 @@
 
 - Video
 
+![ppl_detection](https://user-images.githubusercontent.com/39265784/56529402-4bfbf480-6516-11e9-918a-e0bd574bf15a.gif)
+
 - Function
+1. Draw Squares to detected object and put weights on it.
+<img width="469" alt="Screen Shot 2019-04-22 at 3 46 55 PM" src="https://user-images.githubusercontent.com/39265784/56529192-faec0080-6515-11e9-9a8c-59add0feaf86.png">
+2. Save detected object by clicking the boxes.
+<img width="211" alt="Screen Shot 2019-04-22 at 3 47 26 PM" src="https://user-images.githubusercontent.com/39265784/56529197-fde6f100-6515-11e9-9b7b-138e0da9c21b.png">
+
+
+-Improvment
+: Too low speed to detect objects, even hard to make use 'click & save' fuction. It might be improved by using better computer or Cuda library and use well trained classify function than this given one.
+
+- Acquisitions
+1. How to read the open source library code and use it.
+2. The way to search in the internet to find what i want.
