@@ -46,6 +46,6 @@
 -Improvment
 : Too low speed to detect objects, even hard to make use 'click & save' fuction. It might be improved by using better computer or Cuda library and use well trained classify function than this given one.
 
-- Acquisitions
+# Acquisitions
 1. How to read the open source library code and use it.
 2. The way to search in the internet to find what i want.
